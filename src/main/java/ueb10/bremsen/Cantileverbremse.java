@@ -1,6 +1,6 @@
 package ueb10.bremsen;
 
-public class Cantileverbremse implements Bremse {
+public class Cantileverbremse extends Bremse {
 	private static final int MAX_BELAG = 5;
 	private static final int MIN_BELAG = 1;
 
@@ -11,6 +11,17 @@ public class Cantileverbremse implements Bremse {
 		this.belagLinks = this.belagRechts = MAX_BELAG;
 	}
 
+	public Cantileverbremse(int belagRechts, int belagLinks){
+		super("Continental", "12345678");
+		this.belagRechts = belagRechts;
+		this.belagLinks = belagLinks;
+	}
+
+	public Cantileverbremse(String hersteller, String seriennummer, int belagLinks, int belagRechts){
+		super(hersteller, seriennummer);
+		this.belagLinks = belagLinks;
+		this.belagRechts = belagRechts;
+	}
 	public void bremsen() {
 		System.out.println("Cantileverbremse bremst!");
 	}
